@@ -31,6 +31,22 @@ from openminion.services.runtime.ingress.types import TurnTimeoutError
 
 ISSUES_DIR = Path(__file__).resolve().parent / "examples" / "issues"
 
+
+def _find_config() -> str | None:
+    """Locate .openminion/agents.json by searching upward from this file.
+
+    The SDK resolves its config relative to the working directory; a repo
+    checkout has it at the repo root, while this workspace keeps it one
+    level up. Returning an explicit path makes the agent runnable from
+    anywhere. Returns None when no config exists (SDK default applies).
+    """
+    here = Path(__file__).resolve().parent
+    for candidate in (here, *here.parents):
+        config = candidate / ".openminion" / "agents.json"
+        if config.exists():
+            return str(config)
+    return None
+
 CATEGORIES = ("bug", "feature", "docs", "question")
 PRIORITIES = ("P0", "P1", "P2", "P3")
 
@@ -159,6 +175,7 @@ def triage(issue_id: str, agent_id: str | None, model: str | None = None) -> Tri
     )
     with Agent(
         agent_id=agent_id,
+        config_path=_find_config(),
         model=model,
         instructions=(
             "Triage GitHub issues. Call load_issue first, then answer "

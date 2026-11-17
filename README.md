@@ -74,6 +74,8 @@ openminion setup --provider ollama --model qwen2.5:0.5b --no-chat
 # 3. Run it (the wrapper warms the model up first -- see below):
 ./run_demo.sh                 # triages examples/issues/issue-104.json
 .venv/bin/python triage.py issue-101   # any bundled example, or your own
+# triage.py finds .openminion/agents.json by searching upward from its own
+# location, so it also runs from any other working directory.
 ```
 
 ### Two config tweaks you need on a CPU-only machine
