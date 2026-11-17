@@ -10,7 +10,7 @@ frontend, no multi-agent system, no paid anything.
 
 - Author: Fngyuan ([@sawi57003-ops](https://github.com/sawi57003-ops))
 - Model path: **Ollama, local, free** — `qwen2.5:0.5b` (no account, no key, no card)
-- Demo video: `demo/` (see below) — a real model-backed run, recorded live
+- Demo video: `demo/demo.mp4` (~3 min) — a real model-backed run, recorded live
 
 ## What it does
 
@@ -204,7 +204,7 @@ Python 3.12, Ollama `qwen2.5:0.5b`, CPU-only VM):
 - Model: Ollama `qwen2.5:0.5b` (397 MB), local, free
 - No paid service, no API key, no account needed for the default path
 - Demo video: a real run of `./run_demo.sh`, recorded live with
-  ffmpeg + Xvfb (see `demo/`), unedited within the run
+  ffmpeg + Xvfb (see `demo/demo.mp4`), unedited within the run
 
 ## License
 
