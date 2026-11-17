@@ -1,0 +1,1 @@
+{"body":"When the provider returns an empty reply, the agent loop spins forever instead of stopping after the configured max steps. The loop should stop and report 'provider returned an empty reply' so the run fails loudly instead of hanging.","id":"issue-104","labels":["bug"],"title":"Agent loop hangs on empty provider reply"}
